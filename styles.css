@@ -316,12 +316,13 @@ p {
    HERO SECTION
    ========================================================================== */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: 75px;
+    padding: 120px 0 80px 0;
 }
 
 .hero-background {
@@ -384,14 +385,20 @@ p {
     font-style: italic;
 }
 
+/* ==========================================================================
+   HERO TAGLINE RESPONSIVENESS
+   ========================================================================== */
 .hero-tagline {
     font-size: 1.125rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-secondary);
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
+    padding: 0 1rem;
 }
 
 .separator {
@@ -751,7 +758,7 @@ p {
 }
 
 /* ==========================================================================
-   PATENTS & CREDENTIALS
+   PATENTS & ACHIEVEMENTS
    ========================================================================== */
 .achievements-grid {
     display: grid;
@@ -821,7 +828,7 @@ p {
 }
 
 /* ==========================================================================
-   CONTACT / LOCATION
+   CONTACT
    ========================================================================== */
 .contact-grid {
     display: grid;
@@ -965,6 +972,8 @@ p {
 .footer-nav {
     display: flex;
     gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer-link {
@@ -1121,5 +1130,42 @@ p {
     }
     .stats-grid .stat-item:last-child {
         grid-column: span 1;
+    }
+    .hero-tagline {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .hero-tagline .separator {
+        display: none;
+    }
+    .achievement-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.5rem;
+        gap: 1rem;
+    }
+    .logo {
+        font-size: 1.1rem;
+    }
+    .nav-right {
+        gap: 1rem;
+    }
+}
+
+/* ==========================================================================
+   MAP CONTAINER UTILITIES
+   ========================================================================== */
+.map-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+@media screen and (max-width: 768px) {
+    .map-container {
+        height: 300px;
     }
 }
