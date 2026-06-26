@@ -1,41 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jaydev Zala - Innovator, Mechanical Engineer. Explore cutting-edge projects in AI, IoT, CAD, and Electronics.">
-    <meta name="keywords" content="Jaydev Zala, Innovator, Mechanical Engineer, IoT, CAD, Electronics, AI">
+    <meta name="description" content="Jaydev Zala - Venture Founder, Innovator & Mechanical Engineer. Specializing in AI, IoT systems, CAD design, and Embedded Electronics.">
+    <meta name="keywords" content="Jaydev Zala, Founder, Innovator, Mechanical Engineer, IoT, CAD, Electronics, AI, Spitting Detection System">
     <meta name="author" content="Jaydev Zala">
-    <title>Jaydev Zala | Innovator</title>
+    
+    <title>Jaydev Zala | Executive Portfolio</title>
+    
     <link rel="icon" type="image/jpeg" href="jaydev.jpeg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loader" id="loader">
+    <!-- Executive Page Loader -->
+    <div class="loader" id="loader" aria-hidden="true">
         <div class="loader-content">
             <div class="spinner"></div>
-            <p>Loading...</p>
+            <p>JAYDEV ZALA</p>
         </div>
     </div>
-
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">JAYDEV ZALA</a>
+            <a href="#home" class="logo" id="navLogo">JAYDEV ZALA</a>
             <div class="nav-right">
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                    <li><a href="#focus" class="nav-link">Focus</a></li>
+                    <li><a href="#ventures" class="nav-link">Ventures</a></li>
+                    <li><a href="#history" class="nav-link">History</a></li>
+                    <li><a href="#achievements" class="nav-link">Credentials</a></li>
+                    <li><a href="#location" class="nav-link">Location</a></li>
                 </ul>
-                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme Color Scheme">
+                    <!-- Moon Icon -->
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <!-- Sun Icon -->
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -47,217 +53,323 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle Navigation Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <header id="home" class="hero">
         <div class="hero-background"></div>
-        <div class="hero-content">
+        <div class="hero-content reveal">
             <div class="hero-image-container">
-                <img src="jaydev.jpeg" alt="Jaydev" class="hero-image">
+                <img src="jaydev.jpeg" alt="Jaydev Zala Portrait" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=400';">
             </div>
             <h1 class="hero-title">
-                <span class="line">Hi, I'm</span>
-                <span class="line name-highlight">Jaydev</span>
+                <span class="line">Jaydev Zala</span>
             </h1>
             <p class="hero-tagline">
-                <span class="tagline-item">Innovator</span>
+                <span class="tagline-item">Venture Founder</span>
                 <span class="separator">|</span>
                 <span class="tagline-item">Mechanical Engineer</span>
             </p>
-            <a href="#about" class="cta-button">Explore My Work</a>
+            <div class="hero-cta">
+                <a href="#ventures" class="cta-button primary">Key Ventures</a>
+                <a href="#location" class="cta-button secondary">Location Map</a>
+            </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" aria-hidden="true">
             <div class="mouse"></div>
         </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
+    </header>
+    <!-- Key Metrics Section -->
+    <section class="stats-section" id="metrics" aria-label="Key Performance Indicators">
         <div class="container">
-            <p class="stats-text">
-                50+ Innovative Projects | 1 Indian Patent Filed | 1 International Patent Filed | 1 Research Paper Published | 2 Startups | 50,000+ Govt. Grants Received
-            </p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">Innovative Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="2">0</span>
+                    <span class="stat-label">Patents Filed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1">0</span>
+                    <span class="stat-label">Research Papers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="2">0</span>
+                    <span class="stat-label">Startups Founded</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1.5" data-suffix="L+">0</span>
+                    <span class="stat-label">Govt. Grants Received</span>
+                </div>
+            </div>
         </div>
     </section>
-
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <div class="about-card">
-                    <p class="about-text">
-                        Passionate innovator and Mechanical Engineering student, focused on solving real-world problems through IoT, Artificial Intelligence, electronics, and CAD design. He is the founder of the AI-based Spitting Detection System and actively works on multiple startup-oriented innovations that bridge hardware, software, and intelligent automation. Driven by impact and execution, he builds scalable, practical engineering solutions aligned with real-world needs.
+            <div class="about-grid reveal">
+                <div class="about-vision">
+                    "Bridging physical engineering with digital intelligence to build scalable, high-impact automation products for real-world problems."
+                </div>
+                <div class="about-text">
+                    <p>
+                        I am a passionate innovator, startup founder, and mechanical engineering student who lives at the intersection of hardware and software. I leverage IoT, Artificial Intelligence, computer vision, electronics, and mechanical CAD design to engineering-focused solutions.
+                    </p>
+                    <p>
+                        Driven by product execution, I have built multiple startup-oriented innovations, most notably an AI-based Spitting Detection System and a Ananta Labs India. My goal is to build scalable, practical devices that solve pressing social and industrial issues.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
+    <!-- Focus Areas Section -->
+    <section id="focus" class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-grid">
+            <h2 class="section-title">Core Competency</h2>
+            <div class="skills-grid reveal">
                 <div class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3 class="skill-title">IoT</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📐</div>
-                    <h3 class="skill-title">CAD</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3 class="skill-title">Electronics</h3>
+                    <span class="skill-icon" aria-hidden="true">🔧</span>
+                    <h3 class="skill-title">IoT Systems</h3>
+                    <p class="skill-desc">Designing smart, connected hardware platforms, telemetry pipelines, and cloud-integrated sensor grids.</p>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">🤖</div>
-                    <h3 class="skill-title">AI</h3>
+                    <span class="skill-icon" aria-hidden="true">📐</span>
+                    <h3 class="skill-title">Mechanical CAD</h3>
+                    <p class="skill-desc">Structuring complex mechanical designs, assembly simulations, stress analysis, and rapid prototyping workflows.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon" aria-hidden="true">⚡</span>
+                    <h3 class="skill-title">Embedded Electronics</h3>
+                    <p class="skill-desc">Engineering custom PCB layouts, embedded microcontroller firmware, and analog/digital sensor interfaces.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon" aria-hidden="true">🤖</span>
+                    <h3 class="skill-title">Edge AI Integration</h3>
+                    <p class="skill-desc">Implementing lightweight machine learning models and computer vision pipelines onto localized edge controllers.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Work Experience Section -->
-    <section id="experience" class="experience section">
+    <!-- Ventures & Leadership Section -->
+    <section id="ventures" class="section">
         <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3 class="experience-title">Member: Deep Tech Neuro Projects R&D Team</h3>
-                    <p class="experience-company">Parul University</p>
+            <h2 class="section-title">Ventures & Innovations</h2>
+            <div class="ventures-container reveal">
+                
+                <!-- Venture 1 -->
+                <div class="venture-card">
+                    <div class="venture-header">
+                        <span class="venture-status">Venture Closed</span>
+                        <h3 class="venture-title">Spitting Detection System</h3>
+                        <span class="venture-meta">Nov 2023 - Dec 2025</span>
+                    </div>
+                    <div class="venture-body">
+                        <p class="venture-description">
+                            Founded and developed an intelligent, AI-powered public hygiene and sanitation monitoring platform. Using computer vision models deployed at the edge, the system detects spitting in public areas, helping cities manage cleanliness efficiently.
+                        </p>
+                        <ul class="venture-highlights">
+                            <li>Computer Vision</li>
+                            <li>Edge Computing</li>
+                            <li>Public Sanitation</li>
+                            <li>Intellectual Property</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Intern: Electronics and Deployment Engineer</h3>
-                    <p class="experience-company">Tinkering Hub Parul University</p>
-                    <p class="experience-duration">OCT 2024 - APR 2025</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Intern: Gujarat Heavy Chemicals Limited (GHCL)</h3>
-                    <p class="experience-duration">MAY 2025 - JUN 2025</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Student Ambassador</h3>
-                    <p class="experience-company">PIERC Parul University</p>
-                    <p class="experience-duration">FEB 2024 - OCT 2025</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Innovator</h3>
-                    <p class="experience-company">ICREAT Ahmedabad</p>
-                    <p class="experience-duration">DEC 2024 - DEC 2025</p>
+                <!-- Venture 2 -->
+                <div class="venture-card">
+                    <div class="venture-header">
+                        <span class="venture-status">R&D Stage</span>
+                        <h3 class="venture-title">Ananta Labs India</h3>
+                        <span class="venture-meta">Currently Engaged</span>
+                    </div>
+                    <div class="venture-body">
+                        <p class="venture-description">
+                            Designing Embalming Machines with Electrial Approach with Compact size and Cheap Cost
+                        </p>
+                        <ul class="venture-highlights">
+                            <li>3D Printing</li>
+                            <li>Medical Systems R&D</li>
+                            <li>Bio-Preservation</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Leadership Roles Section -->
-    <section id="leadership" class="leadership section">
+    <!-- Professional Timeline Section -->
+    <section id="history" class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container">
-            <h2 class="section-title">Leadership Roles</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3 class="experience-title">Founder: Spitting Detection System</h3>
-                    <p class="experience-duration">NOV 2023 - DEC 2025</p>
+            <h2 class="section-title">Timeline</h2>
+            <div class="timeline-section reveal">
+                
+                <!-- Experience Column -->
+                <div>
+                    <h3 class="timeline-column-title">Leadership & Professional Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">Oct 2024 - Apr 2025</span>
+                            <h4 class="timeline-title">Electronics and Deployment Intern</h4>
+                            <div class="timeline-subtitle">Tinkering Hub, Parul University</div>
+                            <p class="timeline-desc">Programmed custom microcontroller boards, integrated multi-sensor telemetry systems, and coordinated rapid prototyping.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">May 2025 - Jun 2025</span>
+                            <h4 class="timeline-title">Mechanical Engineering Intern</h4>
+                            <div class="timeline-subtitle">Gujarat Heavy Chemicals Limited (GHCL)</div>
+                            <p class="timeline-desc">Analyzed automated plant machinery operations, assisted in predictive maintenance schedules, and evaluated CAD layouts.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">Dec 2024 - Dec 2025</span>
+                            <h4 class="timeline-title">Supported Innovator</h4>
+                            <div class="timeline-subtitle">iCreate (International Centre for Technology and Entrepreneurship), Ahmedabad</div>
+                            <p class="timeline-desc">Secured milestone incubation mentorship, participated in startup scaling sessions, and refined product-market fits.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">Feb 2024 - Oct 2025</span>
+                            <h4 class="timeline-title">Student Ambassador</h4>
+                            <div class="timeline-subtitle">PIERC, Parul University</div>
+                            <p class="timeline-desc">Promoted technology entrepreneurship ecosystem amongst students, organized local innovation workshops, and acted as a liaison.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Founder: Post Life Preservation System</h3>
-                    <p class="experience-duration">Currently Engaged</p>
+                <!-- Education Column -->
+                <div>
+                    <h3 class="timeline-column-title">Academic Foundation</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">Pursuing</span>
+                            <h4 class="timeline-title">B-Tech in Mechanical Engineering</h4>
+                            <div class="timeline-subtitle">Parul University</div>
+                            <p class="timeline-desc">Advancing knowledge in structural engineering, manufacturing automation, design dynamics, and advanced materials.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">Pursuing</span>
+                            <h4 class="timeline-title">Minor Degree in B-Tech Mechanical Engineering (Specialization in Electric Vehicles)</h4>
+                            <div class="timeline-subtitle">Parul University</div>
+                            <p class="timeline-desc">Developing specialized competencies in battery management systems, EV powertrains, vehicle dynamics, and power electronics.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">Completed</span>
+                            <h4 class="timeline-title">Diploma in Mechanical Engineering</h4>
+                            <div class="timeline-subtitle">Parul University</div>
+                            <p class="timeline-desc">Focusing on material sciences, thermal engineering, CAD automation, and design dynamics.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">High School</span>
+                            <h4 class="timeline-title">Secondary Education</h4>
+                            <div class="timeline-subtitle">DPS, Sutrapada, Gujarat</div>
+                            <p class="timeline-desc">Laid foundation in mathematics, physics, and computer sciences with excellence.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education section">
+    <!-- Credentials & IP Section -->
+    <section id="achievements" class="section">
         <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3 class="experience-title">Diploma (Mechanical)</h3>
-                    <p class="experience-company">Parul University</p>
-                    <p class="experience-duration">Currently Studying</p>
+            <h2 class="section-title">Credentials & IP</h2>
+            <div class="achievements-grid reveal">
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon" aria-hidden="true">🏆</div>
+                    <div class="achievement-info">
+                        <h3 class="achievement-title">Honors & Awards</h3>
+                        <ul class="achievement-list">
+                            <li>Dr. APJ Abdul Kalam Visionary Award 2026</li>
+                            <li>India Book of Records</li>
+                            <li>National Hackathon Winner</li>
+                            <li>State Hackathon Winner</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">1-10th</h3>
-                    <p class="experience-company">DPS, Sutrapada Gujarat</p>
+                <div class="achievement-card">
+                    <div class="achievement-icon" aria-hidden="true">📜</div>
+                    <div class="achievement-info">
+                        <h3 class="achievement-title">Intellectual Property (Patents)</h3>
+                        <p class="achievement-desc"><strong>Patent Filed:</strong> "AN INTELLIGENT SPITTING DETERANCE SYSTEM AND METHOD UTILIZING IoT AND AI TECHNOLOGIES" (202521019012 / PCT/IN2025/051487)</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon" aria-hidden="true">💰</div>
+                    <div class="achievement-info">
+                        <h3 class="achievement-title">Startup Ecosystem & Grants</h3>
+                        <p class="achievement-desc"><strong>Incubation:</strong> Incubated at iCreate Ahmedabad and PIERC Parul University.</p>
+                        <p class="achievement-desc" style="margin-top: 0.5rem;"><strong>Funding Received:</strong> 1.5 L+ INR prototype grants.</p>
+                    </div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon" aria-hidden="true">🤝</div>
+                    <div class="achievement-info">
+                        <h3 class="achievement-title">Professional Memberships</h3>
+                        <ul class="achievement-list">
+                            <li>International Association of Engineers</li>
+                            <li>IEEE Student Member</li>
+                            <li>International Statistical Engineering Association</li>
+                            <li>IAENG Society of Artificial Intelligence</li>
+                            <li>IAENG Society of Electrical Engineering</li>
+                            <li>IAENG Society of Industrial Engineering</li>
+                            <li>IAENG Society of Mechanical Engineering</li>
+                            <li>IAENG Society of Software Engineering</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="achievements section">
+    <!-- Location Map Section -->
+    <section id="location" class="section" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
         <div class="container">
-            <h2 class="section-title">Achievements & Recognition</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <div class="achievement-icon">🏆</div>
-                    <h3 class="achievement-title">Hackathon Selections</h3>
-                    <p class="achievement-description">
-                        National Hackathon Winner<br>
-                        State Hackathon Winner
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">💰</div>
-                    <h3 class="achievement-title">Grants & Funding</h3>
-                    <p class="achievement-description">
-                        Received From ICREAT (International Centre for Entrepreneurship and Technology)
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">🚀</div>
-                    <h3 class="achievement-title">Startup Training</h3>
-                    <p class="achievement-description">
-                        PARUL INNOVATION AND ENTREPRENEURSHIP RESEARCH CENTRE<br>
-                        ICREAT, Ahmedabad<br>
-                        Startupindia Learning Program
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">📜</div>
-                    <h3 class="achievement-title">Patent</h3>
-                    <p class="achievement-description">
-                        AN INTELLIGENT SPITTING DETERRENCE SYSTEM AND METHOD UTILIZING AI AND IOT TECHNOLOGIES<br>
-                        (Filed Indian and International)
-                    </p>
-                </div>
-                <div class="achievement-card">
-                    <div class="achievement-icon">📚</div>
-                    <h3 class="achievement-title">Publications</h3>
-                    <p class="achievement-description">
-                        AI INTEGRATED ELECTRONICS PROTOTYPING WORKSTATION<br>
-                        (Journal: International Journal of Creative Research Thoughts)
-                    </p>
-                </div>
+            <h2 class="section-title">Location</h2>
+            <div class="reveal" style="width: 100%; height: 450px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.74842888655!2d72.82229!3d22.3071588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8ab91a3ddab%3A0xac39d3bfe1473fb8!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890"
+                    class="map-iframe"
+                    title="Jaydev Zala Vadodara Location Map"
+                    allowfullscreen=""
+                    loading="lazy"
+                    style="width: 100%; height: 100%; border: 0;">
+                </iframe>
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <h2 class="section-title" style="margin-bottom: 2rem;">Location</h2>
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118146.48739718822!2d73.09271539726562!3d22.307159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcf48891e2c29%3A0x220b29c2a4ea0!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" 
-                    width="100%" 
-                    height="400" 
-                    style="border:0; border-radius: 12px;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            <div class="footer-content">
+                <div class="footer-logo">JAYDEV ZALA</div>
+                <div class="footer-nav">
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#focus" class="footer-link">Focus</a>
+                    <a href="#ventures" class="footer-link">Ventures</a>
+                    <a href="#history" class="footer-link">History</a>
+                    <a href="#achievements" class="footer-link">Credentials</a>
+                    <a href="#location" class="footer-link">Location</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>https://orcid.org/0009-0009-9225-7789</p>
+                    <p>&copy; 2026 Jaydev Zala. All Rights Reserved.</p>
+                </div>
             </div>
-            <p style="margin-top: 2rem;">ORCID: <a href="https://orcid.org/0009-0009-9225-7789" target="_blank" class="orcid-link">https://orcid.org/0009-0009-9225-7789</a></p>
-            <p>© COPYRIGHT 2026 Jaydev Zala</p>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
