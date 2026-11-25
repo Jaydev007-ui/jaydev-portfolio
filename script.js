@@ -45,17 +45,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     if (menuBtn && navMenu) {
+        const setMenuState = (isOpen) => {
+            menuBtn.classList.toggle('open', isOpen);
+            navMenu.classList.toggle('open', isOpen);
+            menuBtn.setAttribute('aria-expanded', String(isOpen));
+        };
+
         menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('open');
-            navMenu.classList.toggle('open');
+            const isOpen = !navMenu.classList.contains('open');
+            setMenuState(isOpen);
         });
 
         // Close menu when a navigation link is clicked
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuBtn.classList.remove('open');
-                navMenu.classList.remove('open');
-            });
+            link.addEventListener('click', () => setMenuState(false));
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+                setMenuState(false);
+            }
         });
     }
 
@@ -105,8 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
@@ -114,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     // INTERSECTION OBSERVER FOR ACTIVE NAV LINKS
     // ==========================================================================
-    const sections = document.querySelectorAll('section, header');
+    const sections = document.querySelectorAll('section[id], header[id]');
     
     const activeSectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -130,8 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.5,
-        rootMargin: '-50px 0px -50px 0px'
+        threshold: 0,
+        rootMargin: '-25% 0px -65% 0px'
     });
 
     sections.forEach(sec => activeSectionObserver.observe(sec));
@@ -142,33 +152,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const statNumbers = document.querySelectorAll('.stat-number');
     let hasAnimatedStats = false;
 
+    const formatStatValue = (value, target, prefix, suffix) => {
+        if (target % 1 !== 0) {
+            return prefix + value.toFixed(1) + suffix;
+        }
+        if (target >= 1000) {
+            return prefix + Math.floor(value).toLocaleString() + suffix;
+        }
+        return prefix + Math.floor(value) + suffix;
+    };
+
     const animateStats = () => {
         statNumbers.forEach(stat => {
             const target = parseFloat(stat.getAttribute('data-target'));
-            const suffix = stat.getAttribute('data-suffix') || '+';
-            const duration = 1500; // Total animation time (ms)
+            const prefix = stat.getAttribute('data-prefix') || '';
+            const suffix = stat.hasAttribute('data-suffix') ? stat.getAttribute('data-suffix') : '+';
+            const duration = 1400; // Total animation time (ms)
             const increment = target / (duration / 16); // ~60fps
             let current = 0;
 
             const updateCount = () => {
                 current += increment;
                 if (current < target) {
-                    if (target % 1 !== 0) {
-                        stat.textContent = current.toFixed(1) + suffix;
-                    } else if (target >= 1000) {
-                        stat.textContent = Math.floor(current).toLocaleString() + suffix;
-                    } else {
-                        stat.textContent = Math.floor(current) + suffix;
-                    }
+                    stat.textContent = formatStatValue(current, target, prefix, suffix);
                     requestAnimationFrame(updateCount);
                 } else {
-                    if (target % 1 !== 0) {
-                        stat.textContent = target.toFixed(1) + suffix;
-                    } else if (target >= 1000) {
-                        stat.textContent = target.toLocaleString() + suffix;
-                    } else {
-                        stat.textContent = target + suffix;
-                    }
+                    stat.textContent = formatStatValue(target, target, prefix, suffix);
                 }
             };
 
@@ -191,5 +200,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         statsObserver.observe(metricsSection);
+    }
+
+    // ==========================================================================
+    // COPY EMAIL BUTTON
+    // ==========================================================================
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', async () => {
+            const email = copyEmailBtn.getAttribute('data-email');
+            if (!email) return;
+
+            try {
+                await navigator.clipboard.writeText(email);
+                copyEmailBtn.textContent = 'Copied';
+                copyEmailBtn.classList.add('copied');
+                setTimeout(() => {
+                    copyEmailBtn.textContent = 'Copy';
+                    copyEmailBtn.classList.remove('copied');
+                }, 2000);
+            } catch {
+                // Fallback if clipboard API is unavailable
+                window.location.href = `mailto:${email}`;
+            }
+        });
     }
 });
